@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portal Central LabKube</title>
+    <style>
+        body { background: #080C12; color: #E8EFF8; font-family: system-ui, sans-serif; text-align: center; padding: 50px 20px; }
+        .container { max-width: 600px; margin: 0 auto; background: #0E1520; padding: 40px; border-radius: 16px; border: 1px solid rgba(255,255,255,0.05); }
+        h1 { color: #00D4FF; font-size: 32px; margin-bottom: 10px; }
+        p.sub { color: #5A6E8A; margin-bottom: 40px; }
+        .btn { display: block; padding: 18px; margin-bottom: 16px; border-radius: 8px; text-decoration: none; font-weight: bold; font-size: 16px; transition: all 0.2s; }
+        .btn-pre { background: #00D4FF; color: #080C12; }
+        .btn-jupyter { background: #A855F7; color: white; border: 2px solid #A855F7; }
+        .btn-vscode { background: #2563EB; color: white; border: 2px solid #2563EB; }
+        .btn-pos { background: #00F5A0; color: #080C12; }
+        .btn:hover { opacity: 0.9; transform: scale(1.01); }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Portal Central LabKube</h1>
+        <p class="sub">Selecione a etapa da aula indicada pelo professor</p>
+        
+        <a href="/formulario/pre" class="btn btn-pre">1. Responder Pre-Teste</a>
+        <a href="http://localhost:30822/hub/login" id="link-jupyter" class="btn btn-jupyter" target="_blank">2. Abrir o JupyterHub</a>
+        <a href="/static/apostila.pdf" class="btn" style="background-color: #28a745; color: white;" target="_blank">Abrir Apostila de Arduino</a>
+        <a href="http://localhost:30007" id="link-vscode" class="btn btn-vscode" target="_blank">3. Abrir o VS Code</a>
+        <a href="/formulario/pos" class="btn btn-pos">4. Responder Pos-Teste</a>
+    </div>
+
+    <script>
+        var currentHost = window.location.hostname;
+        document.getElementById('link-jupyter').href = 'http://' + currentHost + ':30822/hub/login';
+        document.getElementById('link-vscode').href = 'http://' + currentHost + ':30007';
+    </script>
+</body>
+</html>
